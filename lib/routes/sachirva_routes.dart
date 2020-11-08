@@ -1,3 +1,4 @@
+/*
 import 'package:fluro/fluro.dart';
 import 'package:sachirva_assignment/routes/route_handlers.dart';
 import 'package:sachirva_assignment/share_preferences/sachirva_shared_preference.dart';
@@ -27,7 +28,8 @@ class SachirvaRoutes {
 
     router.define(login,
         handler: loginHandler, transitionType: TransitionType.inFromRight);
-    /*router.define(searchFilter,
+    */
+/*router.define(searchFilter,
         handler: searchFilterHandler, transitionType: TransitionType.inFromRight);
     router.define(userSearchFilter,
         handler: userSearchFilterHandler, transitionType: TransitionType.inFromRight);
@@ -36,8 +38,10 @@ class SachirvaRoutes {
     router.define(updateTags,
         handler: updateTagsHandler, transitionType: TransitionType.inFromRight);
     router.define(updateTagsList,
-        handler: updateTagsListHandler, transitionType: TransitionType.inFromRight);*/
+        handler: updateTagsListHandler, transitionType: TransitionType.inFromRight);*//*
+
 
   }
 
 }
+*/

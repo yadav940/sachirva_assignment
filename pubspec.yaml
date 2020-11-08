@@ -58,7 +58,7 @@ dependencies:
   pull_to_refresh: ^1.6.2
 
   # used for screen navigation
-  fluro: 1.4.0
+  #fluro: ^1.4.0
 
   #  provider
   provider: ^4.1.1

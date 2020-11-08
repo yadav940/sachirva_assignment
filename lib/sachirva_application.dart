@@ -1,8 +1,9 @@
 
-import 'package:fluro/fluro.dart' as t;
+//import 'package:fluro/fluro.dart' as t;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sachirva_assignment/routes/sachirva_routes.dart';
+import 'package:sachirva_assignment/ui/auth/login/login.dart';
 import 'package:sachirva_assignment/util/color/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -28,9 +29,9 @@ class _TagrankAppState extends State<SachirvaApp> {
     super.initState();
     //var appDir = (await getTemporaryDirectory()).path + '/<com.modista.tagrank>';
     //new Directory(appDir).delete(recursive: true);
-    final tagrunkRoutes=t.Router();
+    /*final tagrunkRoutes=t.Router();
     SachirvaRoutes.router=tagrunkRoutes;
-    SachirvaRoutes.configureRoutes(tagrunkRoutes);
+    SachirvaRoutes.configureRoutes(tagrunkRoutes);*/
     //TagrankRoutes.home(tagrunkRoutes);
 
    /* newLocaleDelegate = AppTranslationsDelegate(
@@ -55,7 +56,7 @@ class _TagrankAppState extends State<SachirvaApp> {
       ],
       child: MaterialApp(
         //initialRoute: ,
-        onGenerateRoute: SachirvaRoutes.router.generator,
+        //onGenerateRoute: SachirvaRoutes.router.generator,
         debugShowCheckedModeBanner: false,
         theme:ThemeData(
             primaryColor: white,
@@ -80,7 +81,7 @@ class _TagrankAppState extends State<SachirvaApp> {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],*/
-        //home: LoginPage(),
+        home: LoginPage(),
         supportedLocales: const [
           Locale('ar', 'AR'), // Arabic
           Locale('en', 'US'),

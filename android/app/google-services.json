@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "111516786703",
+    "firebase_url": "https://sachirva-57579.firebaseio.com",
+    "project_id": "sachirva-57579",
+    "storage_bucket": "sachirva-57579.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111516786703:android:fd1b4abb54a275fd3d837a",
+        "android_client_info": {
+          "package_name": "com.vinod.sachirva_assignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111516786703-36lnpoptd818ktufd10q1o85duqmj4du.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPzpuqMFGdmThWu9NeThiNoGouXijAooc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111516786703-36lnpoptd818ktufd10q1o85duqmj4du.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

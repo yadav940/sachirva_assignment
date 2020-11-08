@@ -49,10 +49,10 @@ class SignInProvider extends ChangeNotifier {
           scaffoldKey.currentContext,
           MaterialPageRoute(builder: (context) => Home()),
         );*/
-        Navigator.pushNamed(scaffoldKey.currentContext, SachirvaRoutes.home).then((value) {
+        /*Navigator.pushNamed(scaffoldKey.currentContext, SachirvaRoutes.home).then((value) {
           SystemNavigator.pop();
           //exit(0);
-        });
+        });*/
         /*Navigator.push(
           scaffoldKey.currentContext,
           MaterialPageRoute(builder: (context) => MainWidget()),
