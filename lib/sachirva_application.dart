@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sachirva_assignment/routes/sachirva_routes.dart';
 import 'package:sachirva_assignment/ui/auth/login/login.dart';
+import 'package:sachirva_assignment/ui/splash_page.dart';
 import 'package:sachirva_assignment/util/color/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -81,7 +82,7 @@ class _TagrankAppState extends State<SachirvaApp> {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],*/
-        home: LoginPage(),
+        home: SplashPage(),
         supportedLocales: const [
           Locale('ar', 'AR'), // Arabic
           Locale('en', 'US'),
