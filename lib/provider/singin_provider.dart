@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:sachirva_assignment/routes/route_handlers.dart';
 import 'package:sachirva_assignment/routes/sachirva_routes.dart';
 import 'package:sachirva_assignment/share_preferences/sachirva_shared_preference.dart';
+import 'package:sachirva_assignment/ui/home/home.dart';
 //import 'package:sachirva_assignment/ui/home/home.dart';
 
 /// state of sign in or sign up
@@ -45,10 +46,10 @@ class SignInProvider extends ChangeNotifier {
 
         progressIndicatorStatus=false;
         notifyListeners();
-        /*Navigator.push(
+        Navigator.push(
           scaffoldKey.currentContext,
-          MaterialPageRoute(builder: (context) => Home()),
-        );*/
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
         /*Navigator.pushNamed(scaffoldKey.currentContext, SachirvaRoutes.home).then((value) {
           SystemNavigator.pop();
           //exit(0);
