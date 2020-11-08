@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sachirva_assignment/util/color/colors.dart';
 import 'package:sachirva_assignment/util/style/style.dart';
@@ -13,7 +14,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<double> list =[90.32,30.0,20.0,50.0,15.0,70.77];
+  List<double> list =[];
+
+  final textController0= TextEditingController();
+  final textController1= TextEditingController();
+  final textController2= TextEditingController();
+  final textController3= TextEditingController();
+  final textController4= TextEditingController();
+  final textController5= TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +58,7 @@ class _HomePageState extends State<HomePage> {
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               maxLength: 2,
-              //controller: signInProvider.emailTextController,
+              controller: textController0,
               enableSuggestions: false,
               autofocus: false,
               onFieldSubmitted: (term) {
@@ -76,7 +85,7 @@ class _HomePageState extends State<HomePage> {
               onSaved: (email) {},
             ),
             const SizedBox(
-              height: 12,
+              height: 5,
             ),
             Text('Hindi'),
             const SizedBox(
@@ -86,10 +95,10 @@ class _HomePageState extends State<HomePage> {
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               maxLength: 2,
-              //controller: signInProvider.passwordTextController,
+              controller: textController1,
               enableSuggestions: false,
               autofocus: false,
-              obscureText: true,
+              obscureText: false,
               onFieldSubmitted: (term) {
                 /*signInProvider.emailFocusNode.unfocus();
                           FocusScope.of(context)
@@ -116,7 +125,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             const SizedBox(
-              height: 12,
+              height: 5,
             ),
             Text('Kannada'),
             const SizedBox(
@@ -126,10 +135,11 @@ class _HomePageState extends State<HomePage> {
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               maxLength: 2,
+              controller: textController2,
               //controller: signInProvider.passwordTextController,
               enableSuggestions: false,
               autofocus: false,
-              obscureText: true,
+              obscureText: false,
               onFieldSubmitted: (term) {
                 /*signInProvider.emailFocusNode.unfocus();
                           FocusScope.of(context)
@@ -156,7 +166,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             const SizedBox(
-              height: 12,
+              height: 5,
             ),
             Text('Maths'),
             const SizedBox(
@@ -166,10 +176,11 @@ class _HomePageState extends State<HomePage> {
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               maxLength: 2,
+              controller: textController3,
               //controller: signInProvider.passwordTextController,
               enableSuggestions: false,
               autofocus: false,
-              obscureText: true,
+              obscureText: false,
               onFieldSubmitted: (term) {
                 /*signInProvider.emailFocusNode.unfocus();
                           FocusScope.of(context)
@@ -196,7 +207,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             const SizedBox(
-              height: 12,
+              height: 5,
             ),
             Text('Science'),
             const SizedBox(
@@ -206,10 +217,11 @@ class _HomePageState extends State<HomePage> {
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               maxLength: 2,
+              controller: textController4,
               //controller: signInProvider.passwordTextController,
               enableSuggestions: false,
               autofocus: false,
-              obscureText: true,
+              obscureText: false,
               onFieldSubmitted: (term) {
                 /*signInProvider.emailFocusNode.unfocus();
                           FocusScope.of(context)
@@ -236,7 +248,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             const SizedBox(
-              height: 12,
+              height: 5,
             ),
             Text('Computer'),
             const SizedBox(
@@ -246,10 +258,11 @@ class _HomePageState extends State<HomePage> {
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.next,
               maxLength: 2,
+              controller: textController5,
               //controller: signInProvider.passwordTextController,
               enableSuggestions: false,
               autofocus: false,
-              obscureText: true,
+              obscureText: false,
               onFieldSubmitted: (term) {
                 /*signInProvider.emailFocusNode.unfocus();
                           FocusScope.of(context)
@@ -276,7 +289,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             const SizedBox(
-              height: 12,
+              height: 5,
             ),
             Row(
               children: [
@@ -297,9 +310,41 @@ class _HomePageState extends State<HomePage> {
                   textColor: Colors.white,
                   callBack: (){
                     //signInProvider.login();
+                    list.clear();
+                    if(textController0.text.isNotEmpty){
+                      list.add(double.parse(textController0.text));
+                    }else{
+                      list.add(0.1);
+                    }
+                    if(textController1.text.isNotEmpty){
+                      list.add(double.parse(textController1.text));
+                    }else{
+                      list.add(0.1);
+                    }
+                    if(textController2.text.isNotEmpty){
+                      list.add(double.parse(textController2.text));
+                    }else{
+                      list.add(0.1);
+                    }
+                    if(textController3.text.isNotEmpty){
+                      list.add(double.parse(textController3.text));
+                    }else{
+                      list.add(0.1);
+                    }
+                    if(textController4.text.isNotEmpty){
+                      list.add(double.parse(textController4.text));
+                    }else{
+                      list.add(0.1);
+                    }
+                    if(textController5.text.isNotEmpty){
+                      list.add(double.parse(textController5.text));
+                    }else{
+                      list.add(0.1);
+                    }
+                    
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => BarcharPage()),
+                      CupertinoPageRoute(builder: (context) => BarcharPage(list)),
                     );
                   },
                   textStyle: buttonTextStyle16WhiteSemiBold,
@@ -334,7 +379,7 @@ class _HomePageState extends State<HomePage> {
               title: Text('Profile' , style: textStyle14SecondaryBold),
               //onTap: () =>homeProvider.onTrendingTab(),
             ),
-            const SizedBox(height: 12,),
+            const SizedBox(height: 5,),
             ListTile(
               title: Text('Logout' , style: textStyle14SecondaryBold),
               //onTap: () =>homeProvider.onTrendingTab(),
