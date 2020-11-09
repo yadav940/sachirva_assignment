@@ -25,28 +25,47 @@ class SachirvaPreferences {
 
   /// updating user details after login
   void upDateUserDetails(bool loginStatus, String token, String loginType,
-      String userName, String userEmail) {
+      String fistName,String lastName,String phoneNumber, String userEmail) {
     _prefs
       ..setString('token', token)
       ..setString('login_type', loginType)
       ..setBool('login_status', loginStatus)
-      ..setString('user_name', userName)
+      ..setString('fist_name', fistName)
+      ..setString('last_name', lastName)
+      ..setString('phone_number', phoneNumber)
       ..setString('user_email', userEmail);
   }
 
-  void updateUserNameEmail(String userName, String userEmail) {
+  void updateUserNameEmail(String userName,String lastName,String phoneNumber, String userEmail) {
     _prefs
-      ..setString('user_name', userName)
+      ..setString('fist_name', userName)
+      ..setString('last_name', lastName)
+      ..setString('phone_number', phoneNumber)
       ..setString('user_email', userEmail);
   }
 
   void updateUserName(String userName) {
-    _prefs..setString('user_name', userName);
+    _prefs..setString('fist_name', userName);
+  }
+  void setLoginStatus(bool loginStatus) {
+    _prefs..setBool('login_status', loginStatus);
+  }
+  void setEmail(String email) {
+    _prefs..setString('user_email', email);
   }
 
   /// getting user name
-  String getUseName() {
-    return _prefs.getString('user_name');
+  String geFistName() {
+    return _prefs.getString('fist_name');
+  }
+  String geLastName() {
+    return _prefs.getString('last_name');
+  }
+  String gePhoneNumber() {
+    return _prefs.getString('phone_number');
+  }
+  String getEmailId() {
+    return _prefs.getString('user_email');
   }
 
   /// getting login status

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sachirva_assignment/helper/validator.dart';
 import 'package:sachirva_assignment/provider/singin_provider.dart';
+import 'package:sachirva_assignment/ui/auth/login/register_or_update.dart';
 import 'package:sachirva_assignment/util/color/colors.dart';
+import 'package:sachirva_assignment/util/enum/enum.dart';
 import 'package:sachirva_assignment/util/style/style.dart';
 import 'package:sachirva_assignment/widget/buutton_style/button_style_without_border_extended.dart';
 import 'package:sachirva_assignment/widget/custom_progress_indicator.dart';
@@ -122,11 +124,26 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(
                         height: 8,
                       ),
+                      
                       Row(
                         children: [
                           Expanded(
                             child: SizedBox(),
                           ),
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => RegisterUpdate(UserScreen.registration)),
+                              );
+
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('Add New User'),
+                            ),
+                          )
+
 
                         ],
                       ),
@@ -136,7 +153,7 @@ class LoginPage extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           ButtonStyleWithoutBorderExtended(
-                            buttonText: 'SIGN IN / SIGN UP',
+                            buttonText: 'SIGN IN ',
                             fillColor: secondaryColor,
                             textColor: Colors.white,
                             callBack: (){

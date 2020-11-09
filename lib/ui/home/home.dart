@@ -1,6 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sachirva_assignment/sachirva_application.dart';
+import 'package:sachirva_assignment/share_preferences/sachirva_shared_preference.dart';
+import 'package:sachirva_assignment/ui/auth/login/login.dart';
+import 'package:sachirva_assignment/ui/auth/login/register_or_update.dart';
+import 'package:sachirva_assignment/ui/splash_page.dart';
 import 'package:sachirva_assignment/util/color/colors.dart';
+import 'package:sachirva_assignment/util/enum/enum.dart';
 import 'package:sachirva_assignment/util/style/style.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:sachirva_assignment/widget/barchart/bar_chart_sample.dart';
@@ -372,17 +378,36 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 30,),
             ListTile(
               title: Text('Home' , style: textStyle14SecondaryBold),
-              //onTap: () =>homeProvider.onTrendingTab(),
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
             const SizedBox(height: 12,),
             ListTile(
               title: Text('Profile' , style: textStyle14SecondaryBold),
-              //onTap: () =>homeProvider.onTrendingTab(),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterUpdate(UserScreen.upadate)),
+                );
+              },
             ),
             const SizedBox(height: 5,),
             ListTile(
               title: Text('Logout' , style: textStyle14SecondaryBold),
-              //onTap: () =>homeProvider.onTrendingTab(),
+              onTap: () {
+                Navigator.pop(context);
+                SachirvaPreferences().upDateUserDetails(false,'','','','','','');
+                //RestartWidget.restartApp(context)
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(builder: (context) => LoginPage()),
+                );
+                //SachirvaApp();
+
+
+              },
             ),
             const SizedBox(height: 12,),
 

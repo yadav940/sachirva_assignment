@@ -2,7 +2,7 @@
 enum ProfileScreenType { registration, login, profile }
 
 /// auth screen identification
-enum AuthScreenType {registration, login,}
+enum UserScreen {registration, upadate,}
 
 /// error response state
 enum ErrorResponceStatus { display, dismiss }
