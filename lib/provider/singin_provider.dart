@@ -35,9 +35,20 @@ class SignInProvider extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
 
+  SignInProvider(){
+    textController0.text=SachirvaPreferences().geFistName();
+    textController1.text=SachirvaPreferences().geLastName();
+    textController2.text=SachirvaPreferences().gePhoneNumber();
+    FirebaseAuth.instance.currentUser().then((value) {
+      textController3.text=value.email;
+      //textController0.text=value.displayName;
+
+    });
+  }
+
   void login(){
     if(formKey.currentState.validate()){
-      emailAndPasswordLogin(email: emailTextController.text,password: passwordTextController.text);
+      emailAndPasswordLogin(email: emailTextController.text.trim(),password: passwordTextController.text.trim());
     }
   }
 
@@ -133,6 +144,7 @@ class SignInProvider extends ChangeNotifier {
             true, '', 'email', textController0.text.trim(),textController1.text.trim(),textController2.text.trim(), user.user.email);
 
 
+        //FirebaseAuth.instance.currentUser().
         progressIndicatorStatus=false;
         notifyListeners();
         Fluttertoast.showToast(

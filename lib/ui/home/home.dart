@@ -1,5 +1,9 @@
+import 'dart:async';
+
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sachirva_assignment/sachirva_application.dart';
 import 'package:sachirva_assignment/share_preferences/sachirva_shared_preference.dart';
 import 'package:sachirva_assignment/ui/auth/login/login.dart';
@@ -28,6 +32,26 @@ class _HomePageState extends State<HomePage> {
   final textController3= TextEditingController();
   final textController4= TextEditingController();
   final textController5= TextEditingController();
+
+
+  String _connectionStatus = 'Unknown';
+  final Connectivity _connectivity = Connectivity();
+  StreamSubscription<ConnectivityResult> _connectivitySubscription;
+
+
+  @override
+  void initState() {
+    super.initState();
+    initConnectivity();
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+  }
+
+  @override
+  void dispose() {
+    _connectivitySubscription.cancel();
+    super.dispose();
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -49,7 +73,11 @@ class _HomePageState extends State<HomePage> {
         ),
     )*/
 
+            const SizedBox(
+              height: 10,
+            ),
 
+            Center(child: Text('Connection Status: $_connectionStatus')),
 
             const SizedBox(
               height: 60,
@@ -400,7 +428,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pop(context);
                 SachirvaPreferences().upDateUserDetails(false,'','','','','','');
                 //RestartWidget.restartApp(context)
-                Navigator.push(
+                Navigator.pop(
                   context,
                   CupertinoPageRoute(builder: (context) => LoginPage()),
                 );
@@ -416,5 +444,37 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initConnectivity() async {
+    ConnectivityResult result;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      result = await _connectivity.checkConnectivity();
+    } on PlatformException catch (e) {
+      print(e.toString());
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) {
+      return Future.value(null);
+    }
+
+    return _updateConnectionStatus(result);
+  }
+  Future<void> _updateConnectionStatus(ConnectivityResult result) async {
+    switch (result) {
+      case ConnectivityResult.wifi:
+      case ConnectivityResult.mobile:
+      case ConnectivityResult.none:
+        setState(() => _connectionStatus = result.toString());
+        break;
+      default:
+        setState(() => _connectionStatus = 'Failed to get connectivity.');
+        break;
+    }
   }
 }
